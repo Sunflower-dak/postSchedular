@@ -1,0 +1,23 @@
+<div class="d-flex flex-column justify-content-center align-items-center vh-100 text-center">
+    <h2 class="mb-4 fw-bold">Log In</h2>
+
+    <div class="card p-4 shadow-lg" style="max-width: 400px; width: 100%;">
+        <%= form_with url: log_in_path, class: "needs-validation", data: { turbo: false } do |form| %>
+
+        <div class="mb-3">
+            <%= form.label :email, class: "form-label fw-semibold" %>
+            <%= form.text_field :email, class: "form-control", placeholder: "Enter your email", required: true %>
+        </div>
+
+        <div class="mb-3">
+            <%= form.label :password, class: "form-label fw-semibold" %>
+            <%= form.password_field :password, class: "form-control", placeholder: "Enter password", required: true %>
+        </div>
+
+        <div class="d-grid">
+            <%= form.submit "Log In", class: "btn text-white fw-semibold", style: "background-color: #4C75A3;" %>
+        </div>
+
+        <% end %>
+    </div>
+</div>
