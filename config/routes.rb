@@ -11,11 +11,22 @@ Rails.application.routes.draw do
    get 'log_in', to: 'sessions#new'
    post 'log_in', to: 'sessions#create'
 
+   get 'password', to: 'password#edit', as: :edit_password
+   patch 'password', to: 'password#update'
+
+   get 'password/reset', to: 'password_reset#new'
+   post 'password/reset', to: 'password_reset#create'
+
+   get 'password/reset/edit', to: 'password_reset#edit'
+   patch 'password/reset/edit', to: 'password_reset#update'
+
    delete 'log_out', to: 'sessions#destroy'
 
-  get 'about', to: 'about#index'
-  root to: 'home#index'
+    # get '/auth/twitter', to: 'omniauth#twitter'
+    # get '/auth/failure', to: redirect('/')
+
+    get 'about', to: 'about#index'
+    root to: 'home#index'
 
 end
-
 

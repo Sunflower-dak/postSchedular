@@ -1,12 +1,27 @@
-<% if flash[:notice] %>
-<div class="alert alert-success" role="alert">
-    <%= flash[:notice] %>
-</div>
-<% end %>
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 1050;">
+    <% if flash[:notice] %>
+    <div class="alert alert-success alert-dismissible fade show shadow-lg" role="alert" style="max-width: 300px;">
+        <%= flash[:notice] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% end %>
 
-
-<% if flash[:alert] %>
-<div class="alert alert-warning" role="alert">
-    <%= flash[:alert] %>
+    <% if flash[:alert] %>
+    <div class="alert alert-warning alert-dismissible fade show shadow-lg" role="alert" style="max-width: 300px;">
+        <%= flash[:alert] %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <% end %>
 </div>
-<% end %>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            let alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                let bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 4000);
+    });
+</script>
